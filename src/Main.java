@@ -6,6 +6,7 @@ import java.util.List;
 public class Main {
     int startPunkte = 501;
     boolean addPlayer = false;
+    boolean noWinner = true;
     String tempName;
 
     public static void main(String[] args) {
@@ -13,13 +14,25 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         List<Player> spieler = new ArrayList<>();
 
+
+
         main.beginSetup(scanner, spieler);
+
+        while(main.noWinner){
+            for (int i = 0; i < spieler.size(); i++) {
+                spieler.get(i).spielZug();
+                if(spieler.get(i).getPoints() == 0) {
+                    main.noWinner = false;
+                    break;
+                }
+            }
+        }
     }
 
     void beginSetup(Scanner scannerObj, List<Player> spielerListe) {
         System.out.println("Hallo! Gib einen Namen ein um einen Spieler zu erstellen!");
         tempName = scannerObj.nextLine();
-        spielerListe.add(new Player(tempName, startPunkte));
+        spielerListe.add(new Player(tempName, startPunkte, scannerObj));
         System.out.println("Super! Wenn du noch einen Spieler hinzufügen willst drücke Y wenn nicht, N.");
         if (scannerObj.nextLine().equalsIgnoreCase("Y")){
             addPlayer = true;
@@ -27,7 +40,7 @@ public class Main {
         while(addPlayer){
             System.out.println("Gib noch einen Namen ein!");
             tempName = scannerObj.nextLine();
-            spielerListe.add(new Player(tempName, startPunkte));
+            spielerListe.add(new Player(tempName, startPunkte, scannerObj));
             System.out.println("Super! Wenn du noch einen Spieler hinzufügen willst drücke Y wenn nicht, N.");
             addPlayer = scannerObj.nextLine().equalsIgnoreCase("Y");
         }
