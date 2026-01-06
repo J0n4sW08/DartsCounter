@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         Scanner scanner = new Scanner(System.in);
+        GUI gui = new GUI();
         List<Player> spieler = new ArrayList<>();
 
 
