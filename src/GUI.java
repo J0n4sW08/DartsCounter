@@ -15,7 +15,6 @@ public class GUI {
 
 
         panel.add(new JLabel("Hallo! Gib einen Namen ein um einen Spieler zu erstellen!"), BorderLayout.NORTH);
-        panel.add(new JLabel("test"), BorderLayout.NORTH);
 
 
 
