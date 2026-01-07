@@ -1,15 +1,31 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class GUI {
-    public GUI () {
-        SwingUtilities.invokeLater(() -> new GUI().createAndShowGUI());
+
+    private JFrame frame;
+    private JPanel panel;
+
+    public GUI() {
+        frame = new JFrame("Darts Counter");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+
+
+        panel.add(new JLabel("Hallo! Gib einen Namen ein um einen Spieler zu erstellen!"), BorderLayout.NORTH);
+        panel.add(new JLabel("test"), BorderLayout.NORTH);
+
+
+
+        frame.setContentPane(panel);
+        frame.setSize(300, 400);
+
+
     }
 
-    private void createAndShowGUI() {
-        JFrame fenster = new JFrame("Darts Counter");
-        fenster.setSize(300, 400);
-        fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        JPanel panel = new JPanel();
+    public void show() {
+        frame.setVisible(true);
     }
 }

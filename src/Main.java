@@ -13,18 +13,27 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         Scanner scanner = new Scanner(System.in);
-        GUI gui = new GUI();
+
         List<Player> spieler = new ArrayList<>();
 
+        SwingUtilities.invokeLater(() -> {
+            GUI gui = new GUI();
+            gui.show();
+        });
 
 
-        main.beginSetup(scanner, spieler);
 
-        while(main.noWinner){
+        //main.game(scanner, spieler);
+    }
+
+    void game(Scanner scanner, List<Player> spieler) {
+        beginSetup(scanner, spieler);
+
+        while(noWinner){
             for (int i = 0; i < spieler.size(); i++) {
                 spieler.get(i).spielZug();
                 if(spieler.get(i).getPoints() == 0) {
-                    main.noWinner = false;
+                    noWinner = false;
                     break;
                 }
             }
