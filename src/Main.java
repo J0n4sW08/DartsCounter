@@ -1,21 +1,9 @@
 import javax.swing.*;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
-    int startPunkte = 501;
-    boolean addPlayer = false;
-    boolean noWinner = true;
-    String tempName;
-    List<Player> spieler = new ArrayList<>();
-
     public static void main(String[] args) {
-        Main main = new Main();
-        Scanner scanner = new Scanner(System.in);
-        SwingUtilities.invokeLater(() -> new GUI(main));
+        SwingUtilities.invokeLater(GUI::new);
     }
-
 //    void game(Scanner scanner, List<Player> spieler) {
 //        beginSetup(scanner, spieler);
 //

@@ -1,8 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Player {
     private String name;
-    private float points;
+    float points;
+
+    double wurf1Point = 0;
+    double wurf2Point = 0;
+    double wurf3Point = 0;
 
     boolean amZug = false;
 
@@ -17,12 +23,6 @@ public class Player {
     }
 
     public String getName() {return name;}
-
-
-
-
-
-
 
 //    public void spielZug() {
 //        amZug = true;
