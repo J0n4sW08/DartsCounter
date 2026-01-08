@@ -14,15 +14,6 @@ public class Main {
         Main main = new Main();
         Scanner scanner = new Scanner(System.in);
         SwingUtilities.invokeLater(() -> new GUI(main));
-
-
-
-
-
-
-
-
-
     }
 
 //    void game(Scanner scanner, List<Player> spieler) {

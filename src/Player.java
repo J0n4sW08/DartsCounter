@@ -18,6 +18,12 @@ public class Player {
 
     public String getName() {return name;}
 
+
+
+
+
+
+
 //    public void spielZug() {
 //        amZug = true;
 //        System.out.println("Okay " + this.name + " Du bist am Zug. Was ist dein erster Wurf? " + points);
