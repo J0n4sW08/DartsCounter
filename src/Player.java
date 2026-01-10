@@ -10,7 +10,7 @@ public class Player {
     double wurf2Point = 0;
     double wurf3Point = 0;
 
-    boolean amZug = false;
+    boolean activePlayer = false;
 
     public Player(String name, float startPoints) {
         this.name = name;

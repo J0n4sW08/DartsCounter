@@ -108,6 +108,7 @@ public class GUI {
             }else if (src == ENTERButton){
                 System.out.println("ENTER");
             }
+            wurf1Points.setText(wurf1Points.getText() + tempPoints);
         };
 
 
@@ -127,15 +128,16 @@ public class GUI {
     }
 
     void gameLoop() {
-        for (int i = 0; i < Game.spieler.size(); i++) {
-            tempPoints = 0;
-            amZug.setText(Game.spieler.get(i).getName());
-            punkteLabel.setText("Punkte: " + Game.spieler.get(i).getPoints());
-            Game.spieler.get(i).points -= tempPoints;
-            punkteLabel.setText("Punkte: " + Game.spieler.get(i).getPoints());
+        int i  = 0;
+        tempPoints = 0;
+        amZug.setText(Game.spieler.get(i).getName());
+        Game.spieler.get(i).activePlayer = true;
+        punkteLabel.setText("Punkte: " + Game.spieler.get(i).getPoints());
+        Game.spieler.get(i).points -= tempPoints;
+        punkteLabel.setText("Punkte: " + Game.spieler.get(i).getPoints());
 
 
-            firstThrow.setBackground(Color.green);
-        }
+        firstThrow.setBackground(Color.BLUE);
+
     }
 }
