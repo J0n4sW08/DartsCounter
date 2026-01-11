@@ -40,6 +40,8 @@ public class GUI {
     private JButton trippleButton;
     private JButton ENTERButton;
     private JButton nextPlayerButton; // Neuer Button für Spielerwechsel
+    private JPanel winnerScreen;
+    private JLabel winnerText;
 
     private final StringBuilder input = new StringBuilder();
     private int currentPlayerIndex = 0;
@@ -130,7 +132,7 @@ public class GUI {
 
         clearInput();
         highlightThrow(currentThrow);
-        clearThrowPoints();
+
     }
 
     private void submitThrow() {
@@ -143,8 +145,13 @@ public class GUI {
         punkteLabel.setText("Punkte: " + player.getPoints());
 
         updateThrowLabel(currentThrow, points);
+        if(player.getPoints() <= 0) {
+            System.out.println("du hast gewonnen");
+            CardLayout cl = (CardLayout) root.getLayout();
+            cl.show(root, "winnerScreen");
+            winnerText.setText(player.getName() + " hat das Spiel gewonnen!!!");
+        }
 
-        clearInput();
 
         if (currentThrow < 3) {
             currentThrow++;
@@ -153,6 +160,7 @@ public class GUI {
             currentThrow = 1;
             nextPlayer();
         }
+        clearInput();
     }
 
     private void applyMultiplier(int factor) {
@@ -166,7 +174,7 @@ public class GUI {
 
     private void clearInput() {
         input.setLength(0);
-        updateInputLabel(currentThrow, "");
+        updateInputLabel(currentThrow, ""); // Nur aktuelles Label löschen
     }
 
 
@@ -211,6 +219,8 @@ public class GUI {
 
     private void nextPlayer() {
         clearInput();
+        clearThrowPoints();
+
         currentPlayerIndex++;
         if (currentPlayerIndex >= Game.spieler.size()) {
             currentPlayerIndex = 0;
