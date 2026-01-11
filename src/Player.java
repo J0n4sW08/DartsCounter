@@ -18,6 +18,10 @@ public class Player {
 
     }
 
+    public void addPoints(int points) {
+        this.points += points;
+    }
+
     public float getPoints() {
         return points;
     }
